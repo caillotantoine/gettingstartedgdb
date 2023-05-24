@@ -348,5 +348,5 @@ Here ends the introduction to `gdb`. If you think I missed something important, 
 
 ### Going further
 - The `gdb` documentation is available with `man` and `help`
-- You may want a [cheat sheet]().
+- You may want a [cheat sheet](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf).
 - To learn and play, under agreement, the game [microcoruption](https://microcorruption.com/) make an extensive use of `gdb`.
