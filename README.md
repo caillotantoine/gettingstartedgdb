@@ -1,6 +1,6 @@
 # Getting started with GDB
 
-GDB is the debugger linked with GCC and G++. This document / article aims to sumarize what I learned recently with GDB.
+GDB is the debugger linked with GCC and G++. This document / article aims to summarize what I learned recently with GDB.
 
 
 ## First steps : run a program
@@ -40,21 +40,21 @@ int main(int argc, char **argv)
 
 ```
 
-This program is a simple fibonacci program that prints the 10 first elements of the fibbonacci sequence. We may compile it as follow:
+This program is a simple fibonacci program that prints the 10 first elements of the fibonacci sequence. We may compile it as follow:
 ```
 gcc -g test.c -o test
 ```
-The option `-g` enables debugging injformation in the executable.
+The option `-g` enables debugging information in the executable.
 
 ### Start in debug
 To start the program in debug mode, we run `gdb` with the name of our program in debug mode as follow:
 ```
 gdb test
 ```
-We then get thrown in a new console but our program is not running yet. To run it, we use the command `run` or the simplier `r`.
+We then get thrown in a new console but our program is not running yet. To run it, we use the command `run` or the simpler `r`.
 
 ## Breakpoints
-For dubugging, breakpoints are very usefull since it allows you to stop your program at a given place in order to inspect what's happening.  
+For debugging, breakpoints are very useful since it allows you to stop your program at a given place in order to inspect what's happening.  
 
 ### Setup breakpoints
 There are multiple ways to setup breakpoints. The main ones are the following:
@@ -62,10 +62,10 @@ There are multiple ways to setup breakpoints. The main ones are the following:
 - `b <file>:<line>`
 - `b <file>:<function>`
 
-> Actually, the fulll command is `break` but it is abreviated `b`.
+> Actually, the full command is `break` but it is abbreviated `b`.
 
-Let's say I want to stop befor the for loop of our program to inspect the initial condition.
-In the gdb console, I can use the command `list <filename>`. This will show the lines numbers pf the correponding file. In our case, we want to stop at line 9. Thus:
+Let's say I want to stop before the for loop of our program to inspect the initial condition.
+In the gdb console, I can use the command `list <filename>`. This will show the lines numbers pf the corresponding file. In our case, we want to stop at line 9. Thus:
 ```
 b test.c:9
 ```
@@ -100,7 +100,7 @@ info break
 ignore <ID> 4
 r
 ```
-The breakpoint has been iognored 4 times and we can now see how fibonacci's function behave at N=4.
+The breakpoint has been ignored 4 times and we can now see how fibonacci's function behave at N=4.
 
 > If the program was already running, `ignore` will step through the breakpoint for the N next times.
 
@@ -112,7 +112,7 @@ Ex: breaks.txt
 b fibonacci
 b 14
 ```
-In `gdb` console, we impoort it with the command `source <file>`. 
+In `gdb` console, we import it with the command `source <file>`. 
 > In fact, we can write a set of command in this file to "script GDB". This is detailed [here](#Scripting-GDB).
 
 ## Control GDB
@@ -129,7 +129,7 @@ f(inish)	| Continue until a return is met.
 These commands allow you to control your program after a breakpoint.
 
 ## Examination
-Now we know how to break our program and navigate in it, we want to examine its variables to undertand where are the potiential problems.
+Now we know how to break our program and navigate in it, we want to examine its variables to understand where are the potential problems.
 
 ### Variables
 It is possible to list the variables in the frame we are in with 
@@ -160,7 +160,7 @@ bt
 If you need to trace further back, you may use `bt full`.
 
 ### Assembly savouring
-In case of hunger of assembly code, here we are. This can be usefull in case some variable are optimized out although you believe it shouldn't. 
+In case of hunger of assembly code, here we are. This can be useful in case some variable are optimized out although you believe it shouldn't. 
 
 We can use the command `disassemble`. 
 If you run this command in a function (e.g. after `b fibonacci`), you will get the function disassembled as follow:
@@ -195,7 +195,7 @@ End of assembler dump.
 ```
 > The comment are added by me. Don't expect them from `gdb`.
 
-You may want to use the `intel` assembly flavor insted of the default `att`:
+You may want to use the `intel` assembly flavor instead of the default `att`:
 ```
 set disassembly-flavor intel
 ```
@@ -230,7 +230,7 @@ Dump of assembler code for function fibonacci:
 End of assembler dump.
 ```
 
-> Note the symbole `=>` showing where you are.
+> Note the symbol `=>` showing where you are.
 
 To read the registers, your can `print` or use `info` as 
 ```
@@ -249,7 +249,7 @@ set prev 1
 You can also return form the function and push a given value with the command `return`.
 
 ## Shared library's problem
-Sometimes, it happens that the files we what to debug are in fact inside a shared library. And even if the library is compiloed with the debug info, it needs to be loaded to access its symbols.
+Sometimes, it happens that the files we what to debug are in fact inside a shared library. And even if the library is compiled with the debug info, it needs to be loaded to access its symbols.
 
 Let's split our example in multiple files.
 
@@ -314,7 +314,7 @@ This should run our program. Let's debug it!
 
 If we run `gdb test2` and try to apply breakpoints in fibonacci.c, it cannot immediately be done. Thus we should load the library first.
 
-> `gdb` propose to set the breakpoint for future shared library load. But it is harder to navigate in larger project since there is no auto complition. 
+> `gdb` propose to set the breakpoint for future shared library load. But it is harder to navigate in larger project since there is no auto completion. 
 
 A solution to load the library is to set a breakpoint on the main function and then set the breakpoints. For instance, to stop at a breakpoint at the fibonacci function:
 ```
@@ -344,7 +344,7 @@ Which let the function fibonacci run 4 times before being stopped.
 
 
 ## More of `gdb`
-Here ends the introduction to `gdb`. If you think I missed something important, please let me know (or PR on github).
+Here ends the introduction to `gdb`. If you think I missed something important, please let me know (or PR on GitHub).
 
 ### Going further
 - The `gdb` documentation is available with `man` and `help`
