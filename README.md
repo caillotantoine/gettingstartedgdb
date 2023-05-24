@@ -150,7 +150,7 @@ p buffer
 ```
 > If it is a pointer, you may use the same convention than C/C++ language. For instance `p *&buffer` would also work.
 
-### Whare am I?
+### Where am I?
 In the case you need to know how you reached the breakpoint, you may use the `backtrace` aka `bt`
 
 ```
@@ -159,7 +159,7 @@ bt
 
 If you need to trace further back, you may use `bt full`.
 
-### Assembly degustation
+### Assembly savouring
 In case of hunger of assembly code, here we are. This can be usefull in case some variable are optimized out although you believe it shouldn't. 
 
 We can use the command `disassemble`. 
