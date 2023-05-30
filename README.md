@@ -351,3 +351,6 @@ Here ends the introduction to `gdb`. If you think I missed something important, 
 - You may want a [cheat sheet](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf).
 - To learn and play, under agreement, the game [microcoruption](https://microcorruption.com/) make an extensive use of `gdb`.
 - Another guide: [Beej's Guide](https://beej.us/guide/bggdb/)
+
+### Go further with gprof
+- For profiling your code : [gprof quick-start](https://web.eecs.umich.edu/~sugih/pointers/gprof_quick.html)
